@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+Data Structure and Algorithm Visualizer
+Overview
+This project is a React-based web application that provides interactive visualizations for various data structures and algorithms. It aims to help users understand the inner workings of fundamental computer science concepts through visual representations.
+Currently, the visualizer includes:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sorting Algorithms (Bubble Sort and Quick Sort)
+Binary Search Tree operations
 
-## Available Scripts
+Features
 
-In the project directory, you can run:
+Sorting Visualizer:
 
-### `npm start`
+Visualize Bubble Sort and Quick Sort algorithms
+Generate random arrays for sorting
+Step-by-step visual representation of the sorting process
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Binary Search Tree Visualizer:
 
-### `npm test`
+Insert nodes into a Binary Search Tree
+Visual representation of the tree structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+User Interface:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Switch between different visualizers
+Interactive controls for each visualization
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Installation
+To run this project locally, follow these steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Clone the repository:
+Copygit clone https://github.com/your-username/data-structure-algorithm-visualizer.git
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Navigate to the project directory:
+Copycd data-structure-algorithm-visualizer
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Install the dependencies:
+Copynpm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Start the development server:
+Copynpm start
 
-## Learn More
+Open your browser and visit http://localhost:3000
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Usage
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Sorting Visualizer:
 
-### Code Splitting
+Click on "Sorting Algorithms" in the navigation menu
+Use the "Reset Array" button to generate a new random array
+Click on "Bubble Sort" or "Quick Sort" to visualize the respective sorting algorithm
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+Binary Search Tree Visualizer:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Click on "Binary Search Tree" in the navigation menu
+Enter a number in the input field and click "Insert" to add a node to the tree
+The tree structure will update automatically to show the new node
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+Technologies Used
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+React
+TypeScript
+Recharts (for creating charts in the Sorting Visualizer)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Add more sorting algorithms (e.g., Merge Sort, Heap Sort)
+Implement more operations for the Binary Search Tree (e.g., deletion, search)
+Add visualizations for other data structures (e.g., AVL Trees, Hash Tables)
+Improve UI/UX with better styling and animations
+Add user controls for animation speed
 
-### `npm run build` fails to minify
+License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
+Contact
+If you have any questions, feel free to reach out to Hunter Middleton at [huntomiddo@gmail.com].
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Happy visualizing!
