@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a React-based web application that provides interactive visualizations for various data structures and algorithms. It aims to help users understand the inner workings of fundamental computer science concepts through visual representations.
+This project is a React-based web application that provides interactive visualizations for various data structures and algorithms. It aims to help myself understand the inner workings of fundamental computer science concepts through visual representations.
 
 Currently, the visualizer includes:
 1. Sorting Algorithms (Bubble Sort and Quick Sort)
