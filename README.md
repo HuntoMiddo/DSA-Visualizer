@@ -29,12 +29,12 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/your-username/data-structure-algorithm-visualizer.git
+   git clone https://github.com/huntomiddo/DSA-Visualizer.git
    ```
 
 2. Navigate to the project directory:
    ```
-   cd data-structure-algorithm-visualizer
+   cd DSA-Visualizer
    ```
 
 3. Install the dependencies:
