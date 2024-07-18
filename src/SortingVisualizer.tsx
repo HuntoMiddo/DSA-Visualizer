@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
+interface SortingVisualizerProps {
+  algorithm: 'bubbleSort' | 'quickSort';
+}
+
 const generateRandomArray = (length: number): number[] => {
   return Array.from({ length }, () => Math.floor(Math.random() * 100) + 1);
 };
 
-const SortingVisualizer: React.FC = () => {
+const SortingVisualizer: React.FC<SortingVisualizerProps> = ({ algorithm }) => {
   const [array, setArray] = useState<number[]>([]);
   const [sorting, setSorting] = useState<boolean>(false);
 
@@ -39,11 +43,11 @@ const SortingVisualizer: React.FC = () => {
   const quickSort = async (): Promise<void> => {
     setSorting(true);
     let arr = [...array];
-    
+
     const partition = async (low: number, high: number): Promise<number> => {
-      let pivot = arr[high];
+      const pivot = arr[high];
       let i = low - 1;
-      
+
       for (let j = low; j < high; j++) {
         if (arr[j] < pivot) {
           i++;
@@ -52,38 +56,87 @@ const SortingVisualizer: React.FC = () => {
           await new Promise(resolve => setTimeout(resolve, 50));
         }
       }
-      
+
       [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
       setArray([...arr]);
       await new Promise(resolve => setTimeout(resolve, 50));
-      
+
       return i + 1;
     };
-    
+
     const quickSortHelper = async (low: number, high: number): Promise<void> => {
       if (low < high) {
-        let pi = await partition(low, high);
+        const pi = await partition(low, high);
         await quickSortHelper(low, pi - 1);
         await quickSortHelper(pi + 1, high);
       }
     };
-    
+
     await quickSortHelper(0, arr.length - 1);
     setSorting(false);
   };
 
+  const runAlgorithm = () => {
+    if (algorithm === 'bubbleSort') {
+      bubbleSort();
+    } else if (algorithm === 'quickSort') {
+      quickSort();
+    }
+  };
+
+  const styles = {
+    container: {
+      backgroundColor: 'white',
+      borderRadius: '8px',
+      padding: '1rem',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+    },
+    title: {
+      fontSize: '1.2rem',
+      marginBottom: '1rem',
+    },
+    buttonContainer: {
+      marginBottom: '1rem',
+    },
+    button: {
+      backgroundColor: '#3498db',
+      color: 'white',
+      border: 'none',
+      padding: '0.5rem 1rem',
+      marginRight: '0.5rem',
+      borderRadius: '4px',
+      cursor: 'pointer',
+      transition: 'background-color 0.3s',
+    },
+    disabledButton: {
+      backgroundColor: '#bdc3c7',
+      cursor: 'not-allowed',
+    },
+  };
+
   return (
-    <div style={{ padding: '1rem' }}>
-      <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>Sorting Visualizer</h2>
-      <div style={{ marginBottom: '1rem' }}>
-        <button onClick={resetArray} disabled={sorting} style={{ marginRight: '0.5rem' }}>
+    <div style={styles.container}>
+      <h2 style={styles.title}>{algorithm} Visualizer</h2>
+      <div style={styles.buttonContainer}>
+        <button 
+          onClick={resetArray} 
+          disabled={sorting}
+          style={{
+            ...styles.button,
+            ...(sorting ? styles.disabledButton : {})
+          }}
+        >
           Reset Array
         </button>
-        <button onClick={bubbleSort} disabled={sorting} style={{ marginRight: '0.5rem' }}>
-          Bubble Sort
-        </button>
-        <button onClick={quickSort} disabled={sorting}>
-          Quick Sort
+        <button 
+          onClick={runAlgorithm} 
+          disabled={sorting}
+          style={{
+            ...styles.button,
+            ...(sorting ? styles.disabledButton : {})
+          }}
+        >
+          Run {algorithm}
         </button>
       </div>
       <ResponsiveContainer width="100%" height={300}>
@@ -91,7 +144,7 @@ const SortingVisualizer: React.FC = () => {
           <XAxis dataKey="index" />
           <YAxis />
           <Tooltip />
-          <Bar dataKey="value" fill="#8884d8" />
+          <Bar dataKey="value" fill="#3498db" />
         </BarChart>
       </ResponsiveContainer>
     </div>

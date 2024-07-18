@@ -40,17 +40,17 @@ const BSTVisualizer: React.FC = () => {
 
     return (
       <g key={`${node.value}-${x}-${y}`}>
-        <circle cx={x} cy={y} r={radius} fill="white" stroke="black" />
-        <text x={x} y={y} textAnchor="middle" dominantBaseline="middle">{node.value}</text>
+        <circle cx={x} cy={y} r={radius} fill="#3498db" stroke="#2980b9" />
+        <text x={x} y={y} textAnchor="middle" dominantBaseline="middle" fill="white">{node.value}</text>
         {node.left && (
           <>
-            <line x1={x} y1={y + radius} x2={x - horizontalSpacing} y2={y + 80} stroke="black" />
+            <line x1={x} y1={y + radius} x2={x - horizontalSpacing} y2={y + 80} stroke="#2980b9" />
             {renderTree(node.left, x - horizontalSpacing, y + 80, level + 1)}
           </>
         )}
         {node.right && (
           <>
-            <line x1={x} y1={y + radius} x2={x + horizontalSpacing} y2={y + 80} stroke="black" />
+            <line x1={x} y1={y + radius} x2={x + horizontalSpacing} y2={y + 80} stroke="#2980b9" />
             {renderTree(node.right, x + horizontalSpacing, y + 80, level + 1)}
           </>
         )}
@@ -58,17 +58,49 @@ const BSTVisualizer: React.FC = () => {
     );
   };
 
+  const styles = {
+    container: {
+      backgroundColor: 'white',
+      borderRadius: '8px',
+      padding: '1rem',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+    },
+    title: {
+      fontSize: '1.2rem',
+      marginBottom: '1rem',
+    },
+    inputContainer: {
+      marginBottom: '1rem',
+    },
+    input: {
+      padding: '0.5rem',
+      marginRight: '0.5rem',
+      borderRadius: '4px',
+      border: '1px solid #bdc3c7',
+    },
+    button: {
+      backgroundColor: '#3498db',
+      color: 'white',
+      border: 'none',
+      padding: '0.5rem 1rem',
+      borderRadius: '4px',
+      cursor: 'pointer',
+      transition: 'background-color 0.3s',
+    },
+  };
+
   return (
-    <div style={{ padding: '1rem' }}>
-      <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>Binary Search Tree Visualizer</h2>
-      <div style={{ marginBottom: '1rem' }}>
+    <div style={styles.container}>
+      <h2 style={styles.title}>Binary Search Tree Visualizer</h2>
+      <div style={styles.inputContainer}>
         <input 
           type="number" 
           value={inputValue} 
           onChange={(e) => setInputValue(e.target.value)}
-          style={{ marginRight: '0.5rem' }}
+          style={styles.input}
+          placeholder="Enter a number"
         />
-        <button onClick={handleInsert}>Insert</button>
+        <button onClick={handleInsert} style={styles.button}>Insert</button>
       </div>
       <svg width="100%" height="400">
         {renderTree(root, 300, 40, 0)}
