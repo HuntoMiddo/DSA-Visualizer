@@ -29,12 +29,12 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/your-username/data-structure-algorithm-visualizer.git
+   git clone https://github.com/huntomiddo/DSA-Visualizer.git
    ```
 
 2. Navigate to the project directory:
    ```
-   cd data-structure-algorithm-visualizer
+   cd DSA-Visualizer
    ```
 
 3. Install the dependencies:
@@ -74,10 +74,6 @@ To run this project locally, follow these steps:
 - Add visualizations for other data structures (e.g., AVL Trees, Hash Tables)
 - Improve UI/UX with better styling and animations
 - Add user controls for animation speed
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Contact
 
