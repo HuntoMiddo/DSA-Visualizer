@@ -1,38 +1,345 @@
-.App {
-  text-align: center;
+:root {
+  --nc-tx-1: #285440;
+  --nc-tx-2: #285440;
+  --nc-bg-1: #f5f0e1;
+  --nc-bg-2: #f5f0e1;
+  --nc-bg-3: #f5f0e1;
+  --nc-lk-1: #57ad86;
+  --nc-lk-2: #285440;
+  --nc-lk-tx: #285440;
+  --nc-ac-1: #79FFE1;
+  --nc-ac-tx: #0C4047;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--nc-bg-1);
+  color: var(--nc-tx-1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app {
+  display: flex;
+  height: 100vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sidebar {
+  width: 200px;
+  background-color: var(--nc-lk-2);
+  padding: 1rem;
+  color: var(--nc-bg-1);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.algorithm-selector h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.algorithm-selector button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  background-color: var(--nc-lk-1);
+  color: var(--nc-bg-1);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.algorithm-selector button:hover {
+  background-color: var(--nc-ac-1);
+  color: var(--nc-ac-tx);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.algorithm-selector button.active {
+  background-color: var(--nc-ac-1);
+  color: var(--nc-ac-tx);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.sorting-visualizer {
+  background-color: var(--nc-bg-2);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(40, 84, 64, 0.15);
+  padding: 2rem;
+}
+
+.visualizer-header {
+  margin-bottom: 2rem;
+}
+
+.visualizer-header h2 {
+  margin: 0 0 1rem 0;
+  color: var(--nc-tx-1);
+  font-size: 2em;
+  border-bottom: 2px solid var(--nc-lk-1);
+  padding-bottom: 0.5rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.button-group button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--nc-lk-1);
+  color: var(--nc-bg-1);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.button-group button:hover {
+  background-color: var(--nc-ac-1);
+  color: var(--nc-ac-tx);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-group button:disabled {
+  background-color: var(--nc-bg-3);
+  color: var(--nc-tx-2);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.slider-group {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.slider-control {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-width: 200px;
 }
 
-.App-link {
-  color: #61dafb;
+.slider-control label {
+  margin-bottom: 0.5rem;
+  color: var(--nc-tx-2);
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.slider-control input {
+  width: 100%;
+}
+
+.visualizer-content {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.chart-tracer {
+  flex: 2;
+  background-color: var(--nc-bg-3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(40, 84, 64, 0.1);
+}
+
+.info-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.stats, .log-tracer {
+  background-color: var(--nc-bg-3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(40, 84, 64, 0.1);
+}
+
+.stats h3, .log-tracer h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--nc-lk-2);
+  font-size: 1.2em;
+  border-bottom: 2px solid var(--nc-lk-1);
+  padding-bottom: 0.5rem;
+}
+
+.log-content {
+  height: 200px;
+  overflow-y: auto;
+  font-family: monospace;
+  font-size: 0.9rem;
+  background-color: var(--nc-bg-2);
+  padding: 1rem;
+  border-radius: 6px;
+  color: var(--nc-tx-2);
+  border: 1px solid var(--nc-lk-1);
+}
+
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .sidebar {
+    width: 100%;
   }
+
+  .visualizer-content {
+    flex-direction: column;
+  }
+}
+
+/* Custom styles for chart elements */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: var(--nc-tx-2);
+  opacity: 0.2;
+}
+
+.recharts-xAxis .recharts-cartesian-axis-tick-value,
+.recharts-yAxis .recharts-cartesian-axis-tick-value {
+  fill: var(--nc-tx-2);
+}
+
+.recharts-tooltip-wrapper {
+  background-color: var(--nc-bg-2) !important;
+  border-color: var(--nc-tx-2) !important;
+}
+
+.recharts-default-tooltip {
+  background-color: var(--nc-bg-2) !important;
+  border-color: var(--nc-tx-2) !important;
+}
+
+.recharts-tooltip-item {
+  color: var(--nc-tx-1) !important;
+}
+
+/* Maintain original colors for bar states */
+.bar-default { fill: #3498db; }
+.bar-comparing { fill: #ffd700; }
+.bar-swapping { fill: #ff4500; }
+.bar-pivot { fill: #32cd32; }
+.bar-heapify { fill: #9932cc; }
+
+/* Code section styles */
+.code-editor {
+  margin-top: 2rem;
+  background-color: var(--nc-bg-3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(40, 84, 64, 0.1);
+}
+
+.code-editor h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--nc-lk-2);
+  font-size: 1.2em;
+  border-bottom: 2px solid var(--nc-lk-1);
+  padding-bottom: 0.5rem;
+}
+
+.code-editor > div {
+  border: 1px solid var(--nc-lk-1);
+  border-radius: 4px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Customize Prism.js theme colors to match your app's theme */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #5c6370;
+}
+
+.token.punctuation {
+  color: #abb2bf;
+}
+
+.token.selector,
+.token.tag {
+  color: #e06c75;
+}
+
+.token.property,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.attr-name,
+.token.deleted {
+  color: #d19a66;
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.builtin,
+.token.inserted {
+  color: #98c379;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #56b6c2;
+}
+
+.token.atrule,
+.token.keyword {
+  color: #c678dd;
+}
+
+.token.function {
+  color: #61afef;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #c678dd;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
 }
