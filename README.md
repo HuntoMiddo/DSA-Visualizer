@@ -75,10 +75,6 @@ To run this project locally, follow these steps:
 - Improve UI/UX with better styling and animations
 - Add user controls for animation speed
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
 ## Contact
 
 If you have any questions, feel free to reach out to Hunter Middleton at huntomiddo@gmail.com.
